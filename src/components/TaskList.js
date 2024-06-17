@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { List, Divider } from '@mui/material';
+import TaskItem from './TaskItem';
 
-const TaskList = () => {
+const TaskList = ({tasks, deleteTask, completeTask}) => {
   return (
-    <div>
-      
-    </div>
+    <List>
+      {tasks.map(task => (
+        <React.Fragment key={task.id}>
+          <TaskItem task={task} deleteTask={deleteTask} completeTask={completeTask}/>
+          <Divider/>
+        </React.Fragment>
+      ))}
+    </List>
   )
 }
-
 export default TaskList
