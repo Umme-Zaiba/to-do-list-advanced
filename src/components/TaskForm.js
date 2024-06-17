@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, MenuItem, Select, FormControl, InputLabel, Box } from '@mui/material';
+import { TextField, Button, MenuItem, Select, FormControl, InputLabel, Box, Paper } from '@mui/material';
 
 const TaskForm = ({addTask}) => {
     const [title, setTitle] = useState('');
@@ -23,6 +23,7 @@ const TaskForm = ({addTask}) => {
     };
 
   return (
+    <Paper elevation ={3} sx ={{p:4}}>
     <Box component = 'form' onSubmit={handleSubmit} sx = {{ mb:2 }}>
         <TextField
             label="Title"
@@ -55,6 +56,7 @@ const TaskForm = ({addTask}) => {
             Add Task
         </Button>
     </Box>
+    </Paper>
   )
 }
 
