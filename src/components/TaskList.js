@@ -1,17 +1,24 @@
-import React from 'react';
-import { List, Divider } from '@mui/material';
-import TaskItem from './TaskItem';
+// components/TaskList.js
 
-const TaskList = ({tasks, deleteTask, completeTask}) => {
+import React from 'react';
+import TaskItem from './TaskItem';
+import { List, Paper } from '@mui/material';
+
+const TaskList = ({ tasks, deleteTask, completeTask }) => {
   return (
-    <List>
-      {tasks.map(task => (
-        <React.Fragment key={task.id}>
-          <TaskItem task={task} deleteTask={deleteTask} completeTask={completeTask}/>
-          <Divider/>
-        </React.Fragment>
-      ))}
-    </List>
-  )
-}
-export default TaskList
+    <Paper elevation={3} sx={{ p: 2, mb: 3 }}>
+      <List>
+        {tasks.map(task => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            deleteTask={deleteTask}
+            completeTask={completeTask}
+          />
+        ))}
+      </List>
+    </Paper>
+  );
+};
+
+export default TaskList;

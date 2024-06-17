@@ -1,36 +1,41 @@
-import React from 'react'
-import { ListItem, ListItemSecondaryAction, IconButton, Checkbox, ListItemText } from '@mui/material';
-import {Delete as DeleteIcon } from '@mui/icons-material';
+// components/TaskItem.js
 
-const TaskItem = ({task, deleteTask, completeTask}) => {
+import React from 'react';
+import { ListItem, ListItemText, ListItemSecondaryAction, Checkbox, IconButton, Paper } from '@mui/material';
+import { Delete as DeleteIcon } from '@mui/icons-material';
+
+const TaskItem = ({ task, deleteTask, completeTask }) => {
   const handleDelete = () => {
     deleteTask(task.id);
-  }
+  };
 
   const handleComplete = () => {
     completeTask(task.id);
-  }
- 
-  return (
-    <ListItem disablePadding>
-      <ListItemText
-        primary={task.title}
-        secondary={task.description}
-        primaryTypographyProps={{variant : 'h6', sx: { textDecoration: task.completed ? 'line-through': 'none'}}}
-        secondaryTypographyProps={{variant : 'body2', color: 'text.secondary'}}
-      />
-      <ListItemSecondaryAction>
-        <Checkbox
-          edge="end"
-          onChange={handleComplete}
-          checked = {task.completed}
-        />
-        <IconButton edge = "end" aria-label ="delete" onClick={handleDelete}>
-          <DeleteIcon />
-        </IconButton>
-      </ListItemSecondaryAction>
-    </ListItem>
-  )
-}
+  };
 
-export default TaskItem
+  return (
+    <Paper elevation={2} sx={{ mb: 1 }}>
+      <ListItem>
+        <Checkbox
+          edge="start"
+          checked={task.completed}
+          onChange={handleComplete}
+          inputProps={{ 'aria-labelledby': `checkbox-list-label-${task.id}` }}
+        />
+        <ListItemText
+          id={`checkbox-list-label-${task.id}`}
+          primary={task.title}
+          secondary={task.description}
+          sx={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+        />
+        <ListItemSecondaryAction>
+          <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
+            <DeleteIcon style={{color: 'crimson'}}/>
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
+    </Paper>
+  );
+};
+
+export default TaskItem;

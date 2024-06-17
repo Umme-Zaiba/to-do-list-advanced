@@ -12,7 +12,7 @@ const TaskForm = ({addTask}) => {
             addTask({
                 id: Date.now(),
                 title,
-                description, 
+                description,  
                 category,
                 completed: false
             });
