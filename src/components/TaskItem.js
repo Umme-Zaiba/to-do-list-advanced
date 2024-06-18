@@ -1,5 +1,4 @@
 // components/TaskItem.js
-
 import React from 'react';
 import { ListItem, ListItemText, ListItemSecondaryAction, Checkbox, IconButton, Paper } from '@mui/material';
 import { Delete as DeleteIcon } from '@mui/icons-material';
@@ -21,7 +20,6 @@ const TaskItem = ({ task, deleteTask, completeTask }) => {
           checked={task.completed}
           onChange={handleComplete}
           inputProps={{ 'aria-labelledby': `checkbox-list-label-${task.id}` }}
-          // style={{color: '#32CD32'}}
         />
         <ListItemText
           id={`checkbox-list-label-${task.id}`}

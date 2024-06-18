@@ -6,7 +6,6 @@ const useTasks = () => {
   const [search, setSearch] = useState('');
   const [open, setOpen] = useState(false);
 
-  // Load tasks from local storage on component mount
   useEffect(() => {
     const savedTasks = JSON.parse(localStorage.getItem('tasks'));
     if (savedTasks) {
@@ -14,7 +13,6 @@ const useTasks = () => {
     }
   }, []);
 
-  // Save tasks to local storage whenever tasks change
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);

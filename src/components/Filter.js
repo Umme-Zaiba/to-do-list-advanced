@@ -43,7 +43,6 @@ function Filter({ filter, setFilter, search, setSearch, handleClickOpen }) {
         >
           Add Task
         </Button>
-
       </Box>
     </Paper>
   );
