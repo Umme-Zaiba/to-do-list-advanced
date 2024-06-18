@@ -26,7 +26,7 @@ function TaskForm({ open, handleClose, handleAddTask }) {
     <Dialog open={open} onClose={handleClose} maxWidth="md" PaperProps={{ style: { width: '35%' } }}>
       <DialogTitle>Add New Task</DialogTitle>
       <DialogContent dividers>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
           <TextField
             label="Title"
             value={title}

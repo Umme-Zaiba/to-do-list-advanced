@@ -22,7 +22,18 @@ function App() {
 
   return (
     <Container maxWidth="sm">
-      <Typography variant="h3" gutterBottom align="center" sx={{ mb: 4 }}>
+      <Typography 
+        variant="h3" gutterBottom align="center"            
+        sx={{ 
+          mb: 1, 
+          fontFamily: 'Arial, sans-serif', 
+          fontWeight: 'bold', 
+          color: 'gray', 
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', 
+          padding: '10px 0',
+          borderBottom: '2px solid gray'
+        }}
+      >
         To-Do List
       </Typography>
       <Filter filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} handleClickOpen={handleClickOpen} />
