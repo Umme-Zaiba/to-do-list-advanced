@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Box, FormControl, InputLabel, TextField, MenuItem, Select, IconButton, Button } from '@mui/material';
+import { Paper, Box, FormControl, InputLabel, TextField, MenuItem, Select, Button } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material';
 
 function Filter({ filter, setFilter, search, setSearch, handleClickOpen }) {
@@ -29,9 +29,21 @@ function Filter({ filter, setFilter, search, setSearch, handleClickOpen }) {
           sx={{ mx: 2 }}
           variant="outlined"
         />
-        <IconButton color="primary" onClick={handleClickOpen} sx={{ height: '100%' }}>
-          <Button variant="contained" startIcon={<AddIcon />}>Add Task</Button>
-        </IconButton>
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          onClick={handleClickOpen}
+          sx={{
+            height: 56,
+            whiteSpace: 'nowrap',
+            padding: '0 16px',
+            fontSize: '0.875rem',
+            minWidth: 120
+          }}
+        >
+          Add Task
+        </Button>
+
       </Box>
     </Paper>
   );

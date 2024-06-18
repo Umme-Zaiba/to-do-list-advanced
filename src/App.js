@@ -26,7 +26,6 @@ function App() {
         variant="h3" gutterBottom align="center"            
         sx={{ 
           mb: 1, 
-          fontFamily: 'Arial, sans-serif', 
           fontWeight: 'bold', 
           color: 'gray', 
           textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)', 
