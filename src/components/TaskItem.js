@@ -21,6 +21,7 @@ const TaskItem = ({ task, deleteTask, completeTask }) => {
           checked={task.completed}
           onChange={handleComplete}
           inputProps={{ 'aria-labelledby': `checkbox-list-label-${task.id}` }}
+          // style={{color: '#32CD32'}}
         />
         <ListItemText
           id={`checkbox-list-label-${task.id}`}

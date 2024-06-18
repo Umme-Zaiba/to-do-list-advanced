@@ -1,63 +1,75 @@
 import React, { useState } from 'react';
-import { TextField, Button, MenuItem, Select, FormControl, InputLabel, Box, Paper } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogTitle, TextField, MenuItem, Select, FormControl, InputLabel, Button, Box } from '@mui/material';
 
-const TaskForm = ({addTask}) => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
+function TaskForm({ open, handleClose, handleAddTask }) {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('');
 
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        if(title && description && category){
-            addTask({
-                id: Date.now(),
-                title,
-                description,  
-                category,
-                completed: false
-            });
-            setTitle('');
-            setDescription('');
-            setCategory('');
-        }
-    };
+  const handleAdd = () => {
+    if (title && description && category) {
+      const newTask = {
+        id: Date.now(),
+        title,
+        description,
+        category,
+        completed: false
+      };
+      handleAddTask(newTask);
+      setTitle('');
+      setDescription('');
+      setCategory('');
+    }
+  };
 
   return (
-    <Paper elevation ={3} sx ={{p:4}}>
-    <Box component = 'form' onSubmit={handleSubmit} sx = {{ mb:2 }}>
-        <TextField
+    <Dialog open={open} onClose={handleClose} maxWidth="md" PaperProps={{ style: { width: '35%' } }}>
+      <DialogTitle>Add New Task</DialogTitle>
+      <DialogContent dividers>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <TextField
             label="Title"
-            value ={title}
-            onChange={ (e)=> setTitle(e.target.value)}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             fullWidth
-            margin='normal'
-        />
-        <TextField
+            autoFocus
+            variant="outlined"
+          />
+          <TextField
             label="Description"
             value={description}
-            onChange={(e)=> setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
             fullWidth
-            margin='normal'
-        />
-        <FormControl fullWidth margin='normal'>
+            multiline
+            rows={4}
+            variant="outlined"
+          />
+          <FormControl fullWidth>
             <InputLabel>Category</InputLabel>
             <Select
-                label="Category"  
-                value={category}
-                onChange={(e)=> setCategory(e.target.value)}
+              label="Category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              variant="outlined"
             >
-                <MenuItem value="Work">Work</MenuItem>
-                <MenuItem value="Personal">Personal</MenuItem>
-                <MenuItem value="Shopping">Shopping</MenuItem>
-                <MenuItem value="Others">Others</MenuItem>
+              <MenuItem value="Work">Work</MenuItem>
+              <MenuItem value="Personal">Personal</MenuItem>
+              <MenuItem value="Shopping">Shopping</MenuItem>
+              <MenuItem value="Others">Others</MenuItem>
             </Select>
-        </FormControl>
-        <Button type='submit' variant='contained' color='primary'>
-            Add Task
+          </FormControl>
+        </Box>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose} color="error" variant="outlined">
+          Cancel
         </Button>
-    </Box>
-    </Paper>
-  )
+        <Button onClick={handleAdd} color="primary" variant="outlined">
+          Add Task
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
 }
 
-export default TaskForm
+export default TaskForm;
