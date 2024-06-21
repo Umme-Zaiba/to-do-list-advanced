@@ -19,7 +19,7 @@ function App() {
     completeTask,
     filteredTasks
   } = useTasks();
-
+    
   return (
     <Container maxWidth="sm">
       <Typography 

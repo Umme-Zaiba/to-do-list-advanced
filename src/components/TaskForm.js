@@ -6,6 +6,9 @@ function TaskForm({ open, handleClose, handleAddTask }) {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
 
+
+  const [reminderTime, setReminderTime] = useState('');
+
   const handleAdd = () => {
     if (title && description && category) {
       const newTask = {
@@ -13,12 +16,18 @@ function TaskForm({ open, handleClose, handleAddTask }) {
         title,
         description,
         category,
+        reminderTime,
         completed: false
       };
+
+
       handleAddTask(newTask);
+
+
       setTitle('');
       setDescription('');
       setCategory('');
+      setReminderTime('');
     }
   };
 
@@ -58,6 +67,23 @@ function TaskForm({ open, handleClose, handleAddTask }) {
               <MenuItem value="Others">Others</MenuItem>
             </Select>
           </FormControl>
+
+
+
+          <TextField
+            label="Reminder"
+              // type ="time"
+              type="datetime-local"
+            
+            value={reminderTime}
+            onChange={(e) => setReminderTime(e.target.value)}
+                  InputLabelProps={{
+               shrink: true,
+            }}
+            fullWidth
+          />
+
+
         </Box>
       </DialogContent>
       <DialogActions>

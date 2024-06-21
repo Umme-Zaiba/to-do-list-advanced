@@ -28,6 +28,9 @@ const TaskItem = ({ task, deleteTask, completeTask }) => {
           sx={{ textDecoration: task.completed ? 'line-through' : 'none' }}
         />
         <ListItemSecondaryAction>
+
+        
+
           <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
             <DeleteIcon style={{color: 'crimson'}}/>
           </IconButton>
