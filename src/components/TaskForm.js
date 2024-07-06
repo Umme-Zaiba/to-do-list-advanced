@@ -6,7 +6,6 @@ function TaskForm({ open, handleClose, handleAddTask }) {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
 
-
   const [reminderTime, setReminderTime] = useState('');
 
   const handleAdd = () => {
