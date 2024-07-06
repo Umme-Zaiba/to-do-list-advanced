@@ -22,7 +22,6 @@ function TaskForm({ open, handleClose, handleAddTask }) {
 
       handleAddTask(newTask);
 
-
       setTitle('');
       setDescription('');
       setCategory('');
