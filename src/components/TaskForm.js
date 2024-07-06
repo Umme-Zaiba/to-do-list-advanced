@@ -19,7 +19,6 @@ function TaskForm({ open, handleClose, handleAddTask }) {
         completed: false
       };
 
-
       handleAddTask(newTask);
 
       setTitle('');
