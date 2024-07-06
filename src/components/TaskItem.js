@@ -30,7 +30,6 @@ const TaskItem = ({ task, deleteTask, completeTask }) => {
         <ListItemSecondaryAction>
 
         
-
           <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
             <DeleteIcon style={{color: 'crimson'}}/>
           </IconButton>
