@@ -28,7 +28,7 @@ function Filter({ filter, setFilter, search, setSearch, handleClickOpen }) {
           fullWidth
           sx={{ mx: 2 }}
           variant="outlined"
-        />
+        /> 
         <Button
           variant="contained"
           startIcon={<AddIcon />}
