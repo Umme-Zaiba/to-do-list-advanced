@@ -6,7 +6,7 @@ function Filter({ filter, setFilter, search, setSearch, handleClickOpen }) {
   return (
     <Paper elevation={3} sx={{ p: 2, mb: 3 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <FormControl sx={{ minWidth: 120 }}>
+        <FormControl sx={{ minWidth: 120 }}> 
           <InputLabel>Category</InputLabel>
           <Select
             label="Category"
